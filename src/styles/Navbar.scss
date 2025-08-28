@@ -1,0 +1,114 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  position: relative;
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+  }
+
+  button,
+  a {
+    outline: none;
+    box-shadow: none;
+  }
+
+  button:focus-visible,
+  a:focus-visible {
+    outline: none;
+  }
+
+  button:focus:not(:focus-visible),
+  a:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  .menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  ul {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+
+    li button, li a {
+      background: none;
+      border: none;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .login-btn {
+    border: 2px solid white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      background-color: white;
+      color: #007cf0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 20px;
+
+    .menu-toggle {
+      display: block;
+    }
+
+    ul {
+      position: absolute;
+      top: 5.5rem;
+      left: 0;
+      width: 91%;
+      height: 47.5rem;
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 20px;
+      display: none;
+      gap: 16px;
+
+      &.active {
+        display: flex;
+      }
+
+      li {
+        margin-bottom: 10px;
+
+        a, button {
+          font-size: 1.2rem;
+          text-align: left;
+        }
+      }
+
+      .login-btn {
+        margin-top: 10px;
+        width: auto;
+      }
+    }
+  }
+}
