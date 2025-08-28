@@ -1,41 +1,92 @@
-.pricing-cards {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 24px;
+.pricing-section {
+  padding: 60px 20px;
+  background-color: #fefefe;
+  margin: 0 auto;
 
-  .card {
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    padding: 32px;
-    width: 300px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s;
+  .pricing-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
 
-    &:hover {
-      transform: translateY(-5px);
+    h2 {
+      font-size: 2.5rem;
+      color: #2c3e50;
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
     }
 
-    h3 {
-      font-size: 1.5rem;
-      margin-bottom: 12px;
-      color: #007cf0;
-    }
+    .pricing-cards {
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 24px;
 
-    p {
-      font-weight: bold;
-      color: #333;
-    }
+      .card {
+        background: linear-gradient(135deg, #f0f4ff, #ffffff);
+        border-radius: 16px;
+        padding: 32px;
+        width: 300px;
+        border: 1px solid #dce3f0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+        transition:
+                opacity 0.6s ease,
+                transform 0.6s ease,
+                background 0.4s ease;
 
-    ul {
-      margin-top: 16px;
-      padding-left: 20px;
+        h3 {
+          font-size: 1.5rem;
+          margin-bottom: 12px;
+          color: #007cf0;
+        }
 
-      li {
-        margin-bottom: 8px;
-        list-style-type: disc;
+        p {
+          font-weight: bold;
+          color: #333;
+          margin-bottom: 16px;
+        }
+
+        ul {
+          padding-left: 20px;
+
+          li {
+            margin-bottom: 10px;
+            list-style-type: disc;
+            color: #555;
+          }
+        }
+
+        &:hover {
+          background: linear-gradient(135deg, #e0edff, #ffffff);
+          transform: translateY(-8px) scale(1.02);
+        }
       }
+    }
+  }
+
+  &.visible {
+    h2 {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .pricing-cards .card {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .pricing-section {
+    padding: 30px 20px;
+    margin: 0 auto;
+    .pricing-cards {
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 }

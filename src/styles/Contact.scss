@@ -1,3 +1,14 @@
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .contact-section {
     padding: 80px 20px;
     background: linear-gradient(135deg, #4facfe, #00f2fe);
@@ -7,15 +18,27 @@
         max-width: 600px;
         margin: auto;
         text-align: center;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.8s ease;
+
+        &.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         h2 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-bottom: 16px;
+            animation: fadeInUp 0.6s ease forwards;
+            animation-delay: 0.1s;
         }
 
         p {
             font-size: 1rem;
             margin-bottom: 24px;
+            animation: fadeInUp 0.6s ease forwards;
+            animation-delay: 0.2s;
         }
 
         .contact-form {
@@ -25,24 +48,38 @@
 
             input,
             textarea {
-                padding: 12px;
-                border: none;
-                border-radius: 6px;
+                padding: 14px;
+                border: 1px solid #cce4ff;
+                border-radius: 8px;
                 font-size: 1rem;
+                background-color: #f9fcff;
+                color: #333;
+                transition: border 0.3s ease;
+
+                &:focus {
+                    border-color: #80bdff;
+                    background-color: #ffffff;
+                    outline: none;
+                }
+            }
+
+            textarea {
+                resize: vertical;
             }
 
             button {
-                padding: 12px;
-                background-color: white;
-                color: #4facfe;
+                padding: 14px;
+                background: linear-gradient(135deg, #00b4db, #007cf0);
+                color: white;
                 font-weight: bold;
                 border: none;
-                border-radius: 6px;
+                border-radius: 8px;
                 cursor: pointer;
-                transition: background 0.3s;
+                font-size: 1rem;
+                transition: background 0.3s ease;
 
                 &:hover {
-                    background-color: #e0e0e0;
+                    background: linear-gradient(135deg, #00a0c8, #0066cc);
                 }
             }
         }

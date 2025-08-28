@@ -1,15 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../styles/Hero.scss";
 import illustration from "../assets/analytics.svg";
 import LoginModal from "./LoginModal";
-import Navbar from "./Navbar"; // ⬅️ Tambahan
+import Navbar from "./Navbar";
 
 const Hero = () => {
+    const [animate, setAnimate] = useState(false);
     const [showLogin, setShowLogin] = useState(false);
 
+    useEffect(() => {
+        const timer = setTimeout(() => setAnimate(true), 100);
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
-        <header className="hero">
-            <Navbar onLoginClick={() => setShowLogin(true)} /> {/* ⬅️ Gantikan nav */}
+        <header className={`hero ${animate ? "animate" : ""}`}>
+            <Navbar onLoginClick={() => setShowLogin(true)} />
             <div className="hero-content">
                 <div className="text">
                     <h1>Mudah Kelola Usaha Anda</h1>
